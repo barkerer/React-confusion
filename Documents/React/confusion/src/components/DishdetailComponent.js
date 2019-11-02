@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
         function RenderDish({dish}) {
             return(
@@ -21,11 +21,10 @@ import { Link } from 'react-router-dom';
                     <h4>Comments</h4>
                     <ul className="list-unstyled">
                         {comments.map((comment) => {
-                            return (
-                                <li key={comment.id}>
-                                    <p>{comment.comment}</p>
-                                    <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
-                                </li>
+                            return (<li key={comment.id}>
+                                <p>{comment.comment}</p>
+                                <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}</p>
+                            </li>
                             );
                         })}
                     </ul>
@@ -42,7 +41,7 @@ import { Link } from 'react-router-dom';
                     <div className="container">
                         <div className="row">
                             <RenderDish dish={props.dish} />
-                            <RenderComments comments ={props.dish.comments} />
+                            <RenderComments comments ={props.comments} />
                         </div>
                     </div>
                 );
